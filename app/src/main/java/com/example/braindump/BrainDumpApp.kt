@@ -9,6 +9,6 @@ class BrainDumpApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        viewModel = MainViewModel(Repository.Base())
+        viewModel = MainViewModel(Repository.DataSource(DataSource.CacheDataSource(this)))
     }
 }

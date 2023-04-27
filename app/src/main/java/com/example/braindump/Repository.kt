@@ -18,4 +18,17 @@ interface Repository {
         }
 
     }
+
+    class DataSource(
+        private val dataSource: com.example.braindump.DataSource.CacheDataSource
+    ) : Repository{
+        override fun saveText(text: String) {
+            dataSource.saveText(text)
+        }
+
+        override fun getText(callback: Observable?) {
+            callback?.putValue(dataSource.getText())
+        }
+
+    }
 }

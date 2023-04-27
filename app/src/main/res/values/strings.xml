@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BrainDump</string>
+    <string name="brain_dump">BRAIN DUMP</string>
+    <string name="clear">clear</string>
+    <string name="send">send</string>
+</resources>

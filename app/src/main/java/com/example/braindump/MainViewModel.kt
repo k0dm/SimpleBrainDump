@@ -9,6 +9,9 @@ class MainViewModel(private val repository: Repository) {
         this.callback = observable
     }
 
+    fun clearData() {
+        repository.saveText("")
+    }
     fun clear() {
         callback = null
     }

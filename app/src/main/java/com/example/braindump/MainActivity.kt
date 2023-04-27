@@ -2,6 +2,7 @@ package com.example.braindump
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
@@ -14,9 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel = (application as BrainDumpApp).viewModel
+        val buttonClear = findViewById<Button>(R.id.buttonClear)
+        val buttonSend = findViewById<Button>(R.id.buttonSend)
 
-         editText = findViewById(R.id.editText)
+        viewModel = (application as BrainDumpApp).viewModel
+        editText = findViewById(R.id.editText)
 
         val observable = Observable.Base(object : TextCallback {
             override fun updateText(text: String) {
@@ -24,6 +27,11 @@ class MainActivity : AppCompatActivity() {
             }
         })
         viewModel.init(observable)
+
+        buttonClear.setOnClickListener {
+            viewModel.clearData()
+            editText.setText("")
+        }
     }
 
     override fun onResume() {

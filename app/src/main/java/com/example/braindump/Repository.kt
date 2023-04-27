@@ -6,6 +6,7 @@ interface Repository {
 
     fun getText(callback: Observable?)
 
+
     class Base() : Repository{
 
         private var text = ""
@@ -16,6 +17,8 @@ interface Repository {
         override fun getText(callback: Observable?) {
             callback?.putValue(text)
         }
+
+
 
     }
 
@@ -29,6 +32,7 @@ interface Repository {
         override fun getText(callback: Observable?) {
             callback?.putValue(dataSource.getText())
         }
+
 
     }
 }
